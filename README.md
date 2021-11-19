@@ -49,7 +49,7 @@ O Plugins são codigos implementares, que irão ajudar você a personalizar seu 
 const Discord = require("discord.js");
 const UICode = require("ui-code");
 
-const client = new UICode.Client(Discord);
+const client = new UICode.Client();
 
 client.on("ready", () => {
   client.plugin("music"); //Alguns plugins são do nosso sitemas, mas tambem, tem os da comunidade que estão disponiveis em nosso forum
