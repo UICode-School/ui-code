@@ -50,7 +50,7 @@ const UICode = require("ui-code");
 const client = new UICode.Client();
 
 client.on("ready", () => {
-  client.plugin("music"); //Alguns plugins são do nosso sitemas, mas tambem, tem os da comunidade que estão disponiveis em nosso forum
+  client.plugins(["music"]); //Alguns plugins são do nosso sitemas, mas tambem, tem os da comunidade que estão disponiveis em nosso forum
   //Após conectar um plugin, basta dar client.<nome do plugin>.função()
 });
 
