@@ -21,7 +21,7 @@ yarn add ui-code
 Começamos criando uma conexão com a classe Client
 ```js
 const UICode = require("ui-code");
-const client = new UICode.Client(Discord); //ui-code funciona 100% em conexão ao discord.js
+const client = new UICode.Client(); //ui-code funciona 100% em conexão ao discord.js
 
 client.on("ready", () => {
   console.log("Bot ligado com UICode");
@@ -46,9 +46,7 @@ Com isso, acabamos com a configuração da ui-code
 # Plugins
 O Plugins são codigos implementares, que irão ajudar você a personalizar seu bot sem ter que programar muito
 ```js
-const Discord = require("discord.js");
 const UICode = require("ui-code");
-
 const client = new UICode.Client();
 
 client.on("ready", () => {
