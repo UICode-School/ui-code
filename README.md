@@ -20,9 +20,7 @@ yarn add ui-code
 # Começando
 Começamos criando uma conexão com a classe Client
 ```js
-const Discord = require("discord.js"); //Principal dependencia da ui-code
 const UICode = require("ui-code");
-
 const client = new UICode.Client(Discord); //ui-code funciona 100% em conexão ao discord.js
 
 client.on("ready", () => {
