@@ -1,12 +1,14 @@
 {
-  "name": "ui-code",
-  "version": "1.0.0",
+  "name": "uicode",
+  "version": "1.0.0-dev.1",
   "description": "API de desenvolvimento para Alunos da UICode School!",
   "main": "dist/index",
+  "dependencies": {
+    "socket.io-client": "^4.4.0"
+  },
   "devDependencies": {
     "@types/node": "^16.11.11",
-    "typescript": "^4.5.2",
-    "socket.io-client": "^4.4.0"
+    "typescript": "^4.5.2"
   },
   "scripts": {},
   "keywords": [
