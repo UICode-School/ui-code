@@ -86,9 +86,9 @@ var exist_plugins = "./plugins";
 var acc = "API em carregamento...";
 var c = 'Not';
 var destroyer = false;
-var default_1 = /** @class */ (function (_super) {
-    __extends(default_1, _super);
-    function default_1(config, options) {
+var Client = /** @class */ (function (_super) {
+    __extends(Client, _super);
+    function Client(config, options) {
         var _this = _super.call(this) || this;
         if (options === null || options === void 0 ? void 0 : options.data_file) {
             data_file = options.data_file;
@@ -132,28 +132,12 @@ var default_1 = /** @class */ (function (_super) {
                                 return [2 /*return*/];
                             (0, loadPlugins_1.default)(exist_plugins);
                             console.log(colors_1.FgGreen + ('Plugins carregados com sucesso.') + colors_1.Reset);
-                            this.plugins.get = function (name) {
-                                var _this = this;
-                                var plugin_data = require("../utils/plugins.json");
-                                var plugin = plugin_data.find(function (pl) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
-                                    return [2 /*return*/, pl.name === name];
-                                }); }); });
-                                return plugin || 'Plugin não encontrado';
-                            };
                         }
                         else {
                             if (c === 'OK')
                                 return [2 /*return*/];
                             fs.mkdirSync(exist_plugins);
                             console.log(colors_1.FgGreen + ('Plugins carregados com sucesso.') + colors_1.Reset);
-                            this.plugins.get = function (name) {
-                                var _this = this;
-                                var plugin_data = require("../utils/plugins.json");
-                                var plugin = plugin_data.find(function (pl) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
-                                    return [2 /*return*/, pl.name === name];
-                                }); }); });
-                                return plugin || 'Plugin não encontrado';
-                            };
                         }
                         c = 'OK';
                         return [2 /*return*/];
@@ -187,7 +171,7 @@ var default_1 = /** @class */ (function (_super) {
         });
         return _this;
     }
-    Object.defineProperty(default_1.prototype, "account", {
+    Object.defineProperty(Client.prototype, "account", {
         /**
          * @name account
          * @description Puxa os dados de sua conta em nosso sistema.
@@ -200,14 +184,23 @@ var default_1 = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    default_1.prototype.destroy = function (type) {
-        if (type === true)
-            ws_1.socket.disconnect();
-        if (type === false)
-            ws_1.socket.connect();
-        destroyer = type;
+    Client.prototype.plugin = function (name) {
+        var _this = this;
+        var plugin_data = require("../utils/plugins.json");
+        var plugin = plugin_data.find(function (pl) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+            return [2 /*return*/, pl.name === name];
+        }); }); });
+        return plugin || 'Plugin não encontrado';
     };
-    return default_1;
+    Client.prototype.destroy = function (type) {
+        var tipo = type || true;
+        if (tipo === true)
+            ws_1.socket.disconnect();
+        if (tipo === false)
+            ws_1.socket.connect();
+        destroyer = tipo;
+    };
+    return Client;
 }(events_1.default));
-exports.default = default_1;
+exports.default = Client;
 //# sourceMappingURL=Client.js.map
