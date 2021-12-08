@@ -44,7 +44,7 @@ function loadPlugins(folder) {
         files.forEach(function (a) { return __awaiter(_this, void 0, void 0, function () {
             var plugin;
             return __generator(this, function (_a) {
-                plugin = require("../../../".concat(folder, "/").concat(a));
+                plugin = require("../../../../".concat(folder, "/").concat(a));
                 console.log(plugin);
                 return [2 /*return*/];
             });
