@@ -1,6 +1,6 @@
 {
   "name": "uicode",
-  "version": "1.0.0-dev.3",
+  "version": "1.0.0-dev.4",
   "description": "API de desenvolvimento para Alunos da UICode School!",
   "main": "dist/index",
   "dependencies": {
