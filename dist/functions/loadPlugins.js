@@ -42,10 +42,8 @@ function loadPlugins(folder) {
     (0, fs_1.readdir)(folder, function (err, files) {
         var _this = this;
         files.forEach(function (a) { return __awaiter(_this, void 0, void 0, function () {
-            var plugin;
             return __generator(this, function (_a) {
-                plugin = require("../../../../".concat(folder, "/").concat(a));
-                console.log(plugin);
+                require("../../../../".concat(folder, "/").concat(a));
                 return [2 /*return*/];
             });
         }); });

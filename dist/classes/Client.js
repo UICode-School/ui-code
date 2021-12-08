@@ -184,6 +184,26 @@ var default_1 = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(default_1.prototype, "plugins", {
+        /**
+         * @name plugins
+         * @description Todos os plugins adicionados ao seu sistema
+         */
+        get: function () {
+            return {
+                get: function (name) {
+                    var _this = this;
+                    var plugin_data = require("../utils/plugins.json");
+                    var plugin = plugin_data.find(function (pl) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                        return [2 /*return*/, pl.name === name];
+                    }); }); });
+                    return plugin;
+                }
+            };
+        },
+        enumerable: false,
+        configurable: true
+    });
     default_1.prototype.destroy = function (type) {
         if (type === true)
             ws_1.socket.disconnect();
