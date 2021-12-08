@@ -81,7 +81,7 @@ var loadPlugins_1 = __importDefault(require("../functions/loadPlugins"));
 var colors_1 = require("../utils/colors");
 var data_file = "./ui-code.data.json";
 var exist_data_file = "./ui-code.data.json";
-var plugins = "./plugins";
+var data_plugins = "./plugins";
 var exist_plugins = "./plugins";
 var acc = "API em carregamento...";
 var c = 'Not';
@@ -95,7 +95,7 @@ var default_1 = /** @class */ (function (_super) {
             exist_data_file = path.join(String(options.data_file));
         }
         if (options === null || options === void 0 ? void 0 : options.plugins) {
-            plugins = options.plugins;
+            data_plugins = options.plugins;
             exist_plugins = path.join(String(options.plugins));
         }
         (0, ws_1.default)(config.token);
@@ -132,12 +132,28 @@ var default_1 = /** @class */ (function (_super) {
                                 return [2 /*return*/];
                             (0, loadPlugins_1.default)(exist_plugins);
                             console.log(colors_1.FgGreen + ('Plugins carregados com sucesso.') + colors_1.Reset);
+                            this.plugins.get = function (name) {
+                                var _this = this;
+                                var plugin_data = require("../utils/plugins.json");
+                                var plugin = plugin_data.find(function (pl) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                                    return [2 /*return*/, pl.name === name];
+                                }); }); });
+                                return plugin || 'Plugin não encontrado';
+                            };
                         }
                         else {
                             if (c === 'OK')
                                 return [2 /*return*/];
                             fs.mkdirSync(exist_plugins);
                             console.log(colors_1.FgGreen + ('Plugins carregados com sucesso.') + colors_1.Reset);
+                            this.plugins.get = function (name) {
+                                var _this = this;
+                                var plugin_data = require("../utils/plugins.json");
+                                var plugin = plugin_data.find(function (pl) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                                    return [2 /*return*/, pl.name === name];
+                                }); }); });
+                                return plugin || 'Plugin não encontrado';
+                            };
                         }
                         c = 'OK';
                         return [2 /*return*/];
@@ -180,26 +196,6 @@ var default_1 = /** @class */ (function (_super) {
             if (destroyer === true)
                 return console.log(colors_1.FgRed + ('UICode destroyer.') + colors_1.Reset);
             return acc;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(default_1.prototype, "plugins", {
-        /**
-         * @name plugins
-         * @description Todos os plugins adicionados ao seu sistema
-         */
-        get: function () {
-            return {
-                get: function (name) {
-                    var _this = this;
-                    var plugin_data = require("../utils/plugins.json");
-                    var plugin = plugin_data.find(function (pl) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
-                        return [2 /*return*/, pl.name === name];
-                    }); }); });
-                    return plugin;
-                }
-            };
         },
         enumerable: false,
         configurable: true
