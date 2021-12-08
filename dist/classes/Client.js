@@ -79,7 +79,6 @@ var path = __importStar(require("path"));
 var events_1 = __importDefault(require("events"));
 var loadPlugins_1 = __importDefault(require("../functions/loadPlugins"));
 var colors_1 = require("../utils/colors");
-var get_plugin = '../../../';
 var data_file = "./ui-code.data.json";
 var exist_data_file = "./ui-code.data.json";
 var plugins = "./plugins";

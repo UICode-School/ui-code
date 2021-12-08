@@ -35,12 +35,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = require("fs");
-var readPluginFile_1 = __importDefault(require("./readPluginFile"));
 var total = 0;
 function loadPlugins(folder) {
     (0, fs_1.readdir)(folder, function (err, files) {
@@ -48,7 +44,7 @@ function loadPlugins(folder) {
         files.forEach(function (a) { return __awaiter(_this, void 0, void 0, function () {
             var plugin;
             return __generator(this, function (_a) {
-                plugin = (0, readPluginFile_1.default)(folder, a);
+                plugin = require("../../../".concat(folder, "/").concat(a));
                 console.log(plugin);
                 return [2 /*return*/];
             });
